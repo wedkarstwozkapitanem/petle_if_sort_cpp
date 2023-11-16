@@ -61,7 +61,7 @@ void mechanizm()
     int wybor{ 0 };
     cout << "Wprowadż numer opcji: ";
     wprowadz(&wybor);
-
+    system("cls"); //działa tylko na win api
     switch (wybor)
     {
     case 1:
@@ -69,8 +69,8 @@ void mechanizm()
         int ile_liczb{ 0 };
         cout << "Do jakiej liczby wyświetlić parzyste?: ";
         wprowadz(&ile_liczb);
-        cout << " kolejne liczby parzyste do " << ile_liczb << " : ";
-        zapis << " kolejne liczby parzyste do " << ile_liczb << " : ";
+        cout << " kolejne liczby parzyste do " << ile_liczb << " : " << endl;
+        zapis << " kolejne liczby parzyste do " << ile_liczb << " : " << endl;
         for (int i = 2; i <= ile_liczb; i += 2) {
             cout << i << endl;
             zapis << i << endl;
@@ -84,6 +84,9 @@ void mechanizm()
         wprowadz(&a);
         cout << "Wprowadż 2 liczbe: ";
         wprowadz(&b);
+
+        system("cls"); //działa tylko na win api
+
         if (a > b) {
             cout << a << " jest większe  od " << b;
             zapis << a << " jest większe  od " << b;
@@ -105,7 +108,7 @@ void mechanizm()
         int ile_liczb{ 0 };
         cout << "Ile liczb chcesz posortować?: ";
         wprowadz(&ile_liczb);
-
+        system("cls"); //działa tylko na win api
         std::vector<int> liczby(ile_liczb);
         int ktora{ 1 };
         for (auto& i : liczby) {
@@ -114,11 +117,17 @@ void mechanizm()
             ktora++;
         }
         posortuj(liczby, liczby.size());
+        system("cls"); //działa tylko na win api
+        cout << "Posortowane liczby: ";
+        zapis << "Posortowane liczby: ";
         for (auto i : liczby) {
             cout << i << " ";
             zapis << i << " ";
         }
+        cout << endl;
+        zapis << endl;
     }
+    
     break;
     case 4:
     {
@@ -127,7 +136,7 @@ void mechanizm()
         wprowadz(&a);
         cout << "Podaj 2 liczbe: ";
         wprowadz(&b);
-
+        system("cls"); //działa tylko na win api
         cout << "Suma  liczb: " << a << " + " << b << " = " << a + b << endl;
         zapis << "Suma  liczb :" << a << " + " << b << " = " << a + b << endl;
         cout << "Różnica liczb " << a << " - " << b << " = " << a - b << endl;
@@ -147,15 +156,17 @@ void mechanizm()
     break;
     case 5:
     {
+        system("cls"); //działa tylko na win api
         cout << "Wyłączanie programu ";
         exit(0);
         return;
     }
     break;
     default:
+        system("cls"); //działa tylko na win api
         cout << "Opcja poza zakresu!!!";
     }
-
+    zapis << "\n ---------------- \n ";
     zapis.close();
 }
 
@@ -163,6 +174,7 @@ void mechanizm()
 
 void posortuj(std::vector<int> &tab, int rozmiar)
 {
+    if (rozmiar <= 1) return;
     for (int i = 0; i < rozmiar - 1; i++)
     {
         for (int j = 0; j < rozmiar - 1 - i; j++)
