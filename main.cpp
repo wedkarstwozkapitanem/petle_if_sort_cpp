@@ -4,7 +4,7 @@
 #include <vector>
 #include <fstream>
 
-#define endl '\n';
+#define endl '\n'
 
 using std::cout;
 using std::cin;
@@ -23,7 +23,7 @@ bool start()
 }
 
 void mechanizm();
-void posortuj(std::vector<int> &tab, int rozmiar);
+void posortuj(std::vector<int>& tab, int rozmiar);
 
 int main()
 {
@@ -46,7 +46,7 @@ int main()
 void wyswietl_menu()
 {
     string opcje[] = { "Parzyste liczby","Która liczba większa","Sortowanie", "kalkulator", "koniec programu" };
-    cout << "------MENU----------" << endl;
+    cout << "\n------MENU----------" << endl;
     for (int i = 0; i < (sizeof(opcje) / sizeof(opcje[0])); i++) cout << (i + 1) << ". " << opcje[i] << endl;
     cout << "--------------------" << endl;
     mechanizm();
@@ -97,9 +97,9 @@ void mechanizm()
         }
         else {
             cout << "Liczba 1 i 2: " << a << " jest równa! ";
-            zapis << b << " jest większe od " << a;
+            zapis << b << " jest równe  " << a;
         }
-
+        cout << endl;
     }
     break;
     case 3:
@@ -108,6 +108,10 @@ void mechanizm()
         int ile_liczb{ 0 };
         cout << "Ile liczb chcesz posortować?: ";
         wprowadz(&ile_liczb);
+        if (ile_liczb <= 0) {
+            cerr << "Ilość nie może  być mniejsza od 0";
+            break;
+        }
         system("cls"); //działa tylko na win api
         std::vector<int> liczby(ile_liczb);
         int ktora{ 1 };
@@ -127,7 +131,7 @@ void mechanizm()
         cout << endl;
         zapis << endl;
     }
-    
+
     break;
     case 4:
     {
@@ -137,6 +141,7 @@ void mechanizm()
         cout << "Podaj 2 liczbe: ";
         wprowadz(&b);
         system("cls"); //działa tylko na win api
+        zapis << endl;
         cout << "Suma  liczb: " << a << " + " << b << " = " << a + b << endl;
         zapis << "Suma  liczb :" << a << " + " << b << " = " << a + b << endl;
         cout << "Różnica liczb " << a << " - " << b << " = " << a - b << endl;
@@ -147,8 +152,8 @@ void mechanizm()
             cout << "Iloraz liczb " << a << " / " << b << " = " << a / b << endl;
             zapis << "Iloraz liczb " << a << " / " << b << " = " << a / b << endl;
             cout << "Reszta z dzielenia liczb " << a << " % " << b << " = " << (int)a % (int)b << endl;
-            zapis << "Reszta z dzielenia liczb " << a << " % " << b << " = " << (int) a % (int) b << endl;
-        } 
+            zapis << "Reszta z dzielenia liczb " << a << " % " << b << " = " << (int)a % (int)b << endl;
+        }
         else {
             cerr << "Nie można dzielić przez 0!";
         }
@@ -172,7 +177,7 @@ void mechanizm()
 
 
 
-void posortuj(std::vector<int> &tab, int rozmiar)
+void posortuj(std::vector<int>& tab, int rozmiar)
 {
     if (rozmiar <= 1) return;
     for (int i = 0; i < rozmiar - 1; i++)
