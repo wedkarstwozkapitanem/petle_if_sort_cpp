@@ -1,5 +1,5 @@
-# parzyste liczby
+# Parzyste liczby
 # Która większa liczba
-# sortowanie
-# prosty kalkulator
+# Sortowanie
+# Prosty kalkulator
 # Dominik Łempicki kl.3bLO
